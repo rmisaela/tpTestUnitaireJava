@@ -20,4 +20,12 @@ class Money {
 	public Money add(Money m) {
 		return new Money(amount() + m.amount(), currency());
 	}
+	
+	public boolean equals(Money m) {
+		if (m == null) return false;
+		
+        if (amount() == 0)  return m.amount() == 0;
+        
+        return m.currency().equals(currency()) && amount() == m.amount();
+    }
 }
