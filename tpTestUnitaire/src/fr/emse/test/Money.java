@@ -21,11 +21,14 @@ class Money {
 		return new Money(amount() + m.amount(), currency());
 	}
 	
-	public boolean equals(Money m) {
-		if (m == null) return false;
-		
-        if (amount() == 0)  return m.amount() == 0;
-        
-        return m.currency().equals(currency()) && amount() == m.amount();
-    }
+	public boolean equals(Object obj) {
+	    if (obj instanceof Money) {
+	        Money m = (Money)obj;
+	        
+	        if(amount() == 0) return m.amount() == 0;
+	        
+	        return m.currency().equals(currency()) && amount() == m.amount();
+	    }
+	    return false;
+	}
 }
